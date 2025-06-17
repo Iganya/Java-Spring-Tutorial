@@ -1,21 +1,22 @@
 package academy.learnprogramming;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 
+@Slf4j
 @Component
 public class NumberGeneratorImpl implements NumberGenerator{
-
-    private static final Logger log = LoggerFactory.getLogger(NumberGeneratorImpl.class);
     //== fields ==
     private final Random random = new Random();
 
+    @Getter
     private final int maxNumber;
 
+    @Getter
     private final int minNumber;
 
     // == constructors ==
@@ -29,15 +30,5 @@ public class NumberGeneratorImpl implements NumberGenerator{
         return random.nextInt(maxNumber);
     }
 
-    @Override
-    public int getMaxNumber() {
-        log.info("The max number is", maxNumber);
-        return maxNumber;
-    }
 
-    @Override
-    public int getMinNumber() {
-        log.info("The min number is", minNumber);
-        return minNumber;
-    }
 }
